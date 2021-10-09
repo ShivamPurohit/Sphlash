@@ -57,7 +57,7 @@
     margin-top: 10px;
 }
 
-.applyLoan__fullName, .applyLoan__emailAddress, .applyLoan__password, .applyLoan__skills, .applyLoan__types {
+.applyLoan__fullName, .applyLoan__emailAddress, .applyLoan__password, .applyLoan__skills, .applyLoan__types, .applyLoan__capture {
     margin-top: 25px;
 }
 
@@ -102,7 +102,7 @@
     text-align: center;
 }
 
-.applyLoan__recruiter {
+.applyLoan__type1 {
     width: 136px;
     height: 46px;
     background: #43AFFF 0% 0% no-repeat padding-box;
@@ -115,7 +115,20 @@
     cursor: pointer;
 }
 
-.applyLoan__candidate {
+.applyLoan__type2 {
+    width: 136px;
+    height: 46px;
+    background: #E8E8E833 0% 0% no-repeat padding-box;
+    border: 1px solid #C6C6C6;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.applyLoan__type3 {
     width: 136px;
     height: 46px;
     background: #E8E8E833 0% 0% no-repeat padding-box;
@@ -146,7 +159,7 @@ text {
     margin-top: 20px;
 }
 
-.applyLoan > p {
+.applyLoan__eligible {
     text-align: center;
     font-size: 18px;
     margin-top: 20px;
