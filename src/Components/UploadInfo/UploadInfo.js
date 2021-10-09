@@ -79,7 +79,7 @@ function UploadInfo() {
                             height={300}
                             ref={webcamRef}
                             screenshotFormat="image/jpeg"
-                            width={450}
+                            width={430}
                             videoConstraints={videoConstraints}
                         />
                         <Button variant="contained" color="primary" onClick={capture} style={{
@@ -130,9 +130,9 @@ function UploadInfo() {
                                 label="Government ID type"
                                 onChange={handleChange}
                             >
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                <MenuItem value={"aadhar"}>Aadhar</MenuItem>
+                                <MenuItem value={"pan"}>PAN Card</MenuItem>
+                                <MenuItem value={"licence"}>Driving Licence</MenuItem>
                             </Select>
                         </FormControl>
                     </div>

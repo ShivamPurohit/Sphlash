@@ -4,12 +4,11 @@ import { useHistory } from 'react-router-dom'
 import "./Sidebar.css"
 
 function Sidebar() {
-
     const history = useHistory()
 
     return (
         <div className="sidebar">
-            <img className="sidebar__image" src="https://cdn.pixabay.com/photo/2016/09/16/09/21/money-1673582_960_720.png" alt="" title="Apply for a loan" onClick={() => history.push("/applyLoan")} />
+            <img onClick={() => history.push("/applyLoan")} className="sidebar__image" src="https://cdn.pixabay.com/photo/2016/09/16/09/21/money-1673582_960_720.png" alt="" title="Apply for a loan" />
 
             <img className="sidebar__image" src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png" alt="" title="Upload Info and check eligibility score" onClick={() => history.push("/uploadInfo")} />
 
