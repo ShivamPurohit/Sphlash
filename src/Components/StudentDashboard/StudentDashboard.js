@@ -25,7 +25,7 @@ function StudentDashboard() {
                     </div>
                 </div>
 
-                <div className="card" onClick={() => history.push("/applyLoan")}>
+                <div className="card" onClick={() => history.push("/previousLoans")}>
                     <img src="https://cdn.pixabay.com/photo/2015/11/18/15/02/approved-1049259_960_720.png" alt="Avatar" style={{ width: "100%" }} />
                     <div className="container">
                         <Button color="primary" variant="contained" fullWidth>View previous Loans taken</Button>

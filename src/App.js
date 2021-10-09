@@ -6,6 +6,7 @@ import ApplyLoan from './Components/ApplyLoan/ApplyLoan';
 
 import 'react-toastify/dist/ReactToastify.css'
 import UploadInfo from './Components/UploadInfo/UploadInfo';
+import PreviousLoans from './Components/PreviousLoans/PreviousLoans';
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
 
           <Route exact path="/uploadInfo">
             <UploadInfo />
+          </Route>
+
+          <Route exact path="/previousLoans">
+            <PreviousLoans />
           </Route>
         </Switch>
       </Router>
