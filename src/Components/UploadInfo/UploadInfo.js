@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import GaugeChart from 'react-gauge-chart'
 
@@ -22,13 +22,6 @@ const videoConstraints = {
 function UploadInfo() {
     const history = useHistory()
 
-    const apply = (e) => {
-        e.preventDefault()
-
-        toast.success("Yay !! Successfully applied for a loan. Some lender will get back to you soon !!")
-        history.push("/stuDashboard")
-    }
-
     const webcamRef = React.useRef(null);
 
     const capture = React.useCallback(
@@ -39,19 +32,31 @@ function UploadInfo() {
         [webcamRef]
     );
 
-    const captureDoc = React.useCallback(
-        () => {
-            const imageSrcDoc = webcamRef.current.getScreenshot();
-            toast.success("Document Captured Successfully")
-        },
-        [webcamRef]
-    );
-
     const [idType, setIdType] = React.useState('');
 
     const handleChange = (event) => {
         setIdType(event.target.value);
     };
+
+    const [score, setScore] = useState(0)
+    const [display, setDisplay] = useState(false)
+
+    const upload = (e) => {
+        e.preventDefault()
+
+        setScore(0.90);
+        setDisplay(true)
+
+        toast.success("Your eligibility score is mentioned below !!")
+        // history.push("/stuDashboard")
+    }
+
+    const saveAndBack = (e) => {
+        e.preventDefault()
+
+        toast.success("Information saved successfully !!")
+        history.push("/stuDashboard")
+    }
 
     return (
         <div className="uploadInfo">
@@ -202,9 +207,25 @@ function UploadInfo() {
                         <input type="file" />
                     </div>
 
-                    <div className="uploadInfo__submit">
-                        <Button variant="contained" color="primary" fullWidth onClick={apply}>Upload Information</Button>
-                    </div>
+                    {display === true && (
+                        <>
+                            <p className="uploadInfo__eligible">Your eligibility score is: </p>
+                            <div className="uploadInfo__score">
+                                <GaugeChart id="gauge-chart2"
+                                    nrOfLevels={20}
+                                    percent={score}
+                                />
+                            </div>
+                        </>
+                    )}
+
+                    {display === true ? (
+                        <Button variant="contained" color="primary" fullWidth onClick={saveAndBack} style={{ marginBottom: "15px" }}>Save and Go Back</Button>
+                    ) : (
+                        <div className="uploadInfo__submit">
+                            <Button variant="contained" color="primary" fullWidth onClick={upload}>Upload Information</Button>
+                        </div>
+                    )}
 
                     <div className="uploadInfo__back">
                         <Button variant="contained" color="primary" fullWidth onClick={() => history.push("/stuDashboard")}>Go back to Dashboard</Button>

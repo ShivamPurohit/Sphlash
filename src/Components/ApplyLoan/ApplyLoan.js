@@ -19,7 +19,7 @@ function ApplyLoan() {
     const apply = (e) => {
         e.preventDefault()
 
-        toast.success("Yay !! Successfully applied for a loan. Some lender will get back to you soon !!")
+        toast.success("Yay !! You have Successfully applied for a loan. Some lender will get back to you soon !!")
         history.push("/stuDashboard")
     }
 
