@@ -9,8 +9,8 @@ function StudentDashboard() {
     const history = useHistory()
 
     return (
-        <>
-            <div className="stuDash">
+        <div className="stuDash">
+            <div className="stuDash__upper">
                 <div className="card" onClick={() => history.push("/applyLoan")}>
                     <img src="https://cdn.pixabay.com/photo/2016/09/16/09/21/money-1673582_960_720.png" alt="Avatar" style={{ width: "100%" }} />
                     <div className="container">
@@ -41,7 +41,7 @@ function StudentDashboard() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

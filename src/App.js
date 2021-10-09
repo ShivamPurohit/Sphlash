@@ -7,10 +7,13 @@ import ApplyLoan from './Components/ApplyLoan/ApplyLoan';
 import 'react-toastify/dist/ReactToastify.css'
 import UploadInfo from './Components/UploadInfo/UploadInfo';
 import PreviousLoans from './Components/PreviousLoans/PreviousLoans';
+import Sidebar from './Components/Sidebar/Sidebar';
 
 function App() {
   return (
     <div className="App">
+
+      <Sidebar />
 
       <Router>
         <ToastContainer />
