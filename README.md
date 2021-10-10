@@ -5,6 +5,9 @@
 ## Deployed Link
 https://sphlash.web.app/
 
+## Demo video
+
+link: https://youtu.be/BrHcXG7v_7Q
 
 ## Problem Statement
 <p>The issue of unavailability of micro loans for student has troubled many students for a long time. Along with the slow and complex process of acquiring bigger student loans, students are often found wanting for a faster and better method of acquiring micros and macro loans.</p>
