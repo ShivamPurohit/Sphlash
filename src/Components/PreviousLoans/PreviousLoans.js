@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
@@ -11,13 +9,24 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useHistory } from 'react-router-dom';
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const theme = createTheme();
 
 export default function PreviousLoans() {
     const history = useHistory()
+
+    const [transaction, setTransaction] = useState([])
+
+    useEffect(() => {
+        axios.get("Transaction.json")
+            .then((res) => {
+                setTransaction(res.data);
+            })
+    }, [])
+
     return (
         <ThemeProvider theme={theme}>
 
@@ -37,7 +46,7 @@ export default function PreviousLoans() {
                             color="white"
                             gutterBottom
                         >
-                            See your previously taken loans
+                            Transaction History
                         </Typography>
 
                         <Stack
@@ -53,28 +62,28 @@ export default function PreviousLoans() {
                 <Container sx={{ py: 8 }} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {cards.map((card) => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
+                        {transaction.map((value) => (
+                            <Grid item key={value} xs={12} sm={6} md={4}>
                                 <Card
                                     sx={{ height: '100%', display: 'flex', flexDirection: 'column', background: "rgba(0, 0, 0, 0.2)", padding: "10px" }}
                                 >
-                                    <CardMedia
-                                        component="img"
-                                        image="https://source.unsplash.com/random"
-                                        alt="random"
-                                    />
                                     <CardContent sx={{ flexGrow: 1, color: "white" }}>
                                         <Typography gutterBottom variant="h5" component="h2">
-                                            Heading
+                                            Transaction ID: {value.id}
                                         </Typography>
                                         <Typography>
-                                            This is a media card. You can use this section to describe the
-                                            content.
+                                            To: {value.to}
+                                        </Typography>
+                                        <Typography>
+                                            From: {value.from}
+                                        </Typography>
+                                        <Typography>
+                                            Amount: {value.Amount}
+                                        </Typography>
+                                        <Typography>
+                                            Amount Due: {value.Amount_Due}
                                         </Typography>
                                     </CardContent>
-                                    <CardActions>
-                                        <Button size="small" variant="contained" color="primary">View</Button>
-                                    </CardActions>
                                 </Card>
                             </Grid>
                         ))}

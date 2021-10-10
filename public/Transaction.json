@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1e2f3b5w88",
+        "to": "Pranjal Srivastava",
+        "from": "Ramankur Goswami",
+        "Amount": 8000,
+        "Amount_Due": 2000
+    },
+    {
+        "id": "1e2f3b5w88",
+        "to": "Pranjal Srivastava",
+        "from": "Shivam Purohit",
+        "Amount": 6000,
+        "Amount_Due": 1000
+    },
+    {
+        "id": "1e2f3b5w88",
+        "to": "Pranjal Srivastava",
+        "from": "Ramesh",
+        "Amount": 10000,
+        "Amount_Due": 1000
+    }
+]

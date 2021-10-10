@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import UploadInfo from './Components/UploadInfo/UploadInfo';
 import PreviousLoans from './Components/PreviousLoans/PreviousLoans';
 import Sidebar from './Components/Sidebar/Sidebar';
+import Home from './Components/Home/Home';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Sidebar />
         <ToastContainer />
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+
           <Route exact path="/stuDashboard">
             <StudentDashboard />
           </Route>

@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import GaugeChart from 'react-gauge-chart'
 
@@ -16,12 +16,15 @@ const videoConstraints = {
 function ApplyLoan() {
     const history = useHistory()
 
-    const apply = (e) => {
-        e.preventDefault()
-
-        toast.success("Yay !! You have Successfully applied for a loan. Some lender will get back to you soon !!")
-        history.push("/stuDashboard")
-    }
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [contact, setContact] = useState("")
+    const [amount, setAmount] = useState("")
+    const [reason, setReason] = useState("")
+    const [duration, setDuration] = useState("")
+    const [repay, setrepay] = useState("")
+    const [selfie, setSelfie] = useState("")
+    const [doc, setDoc] = useState("")
 
     const webcamRef = React.useRef(null);
 
@@ -40,6 +43,18 @@ function ApplyLoan() {
         },
         [webcamRef]
     );
+
+    const apply = (e) => {
+        e.preventDefault()
+
+        if (!name.length || !email.length || !contact.length || !amount.length || !reason.length || !duration.length || !repay.length || !selfie.length || !doc.length) {
+            toast.error("Please fill all the required fields");
+            return;
+        }
+
+        toast.success("Yay !! You have Successfully applied for a loan. Some lender will get back to you soon !!")
+        history.push("/stuDashboard")
+    }
 
     return (
         <div className="applyLoan">
