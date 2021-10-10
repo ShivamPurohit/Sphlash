@@ -1,5 +1,10 @@
 <h1 align="center">Sphlash</h1>
 
+<p align="center"><img src="./SPHLASH.png" /> </p>
+
+## Deployed Link
+https://sphlash.web.app/
+
 
 ## Problem Statement
 <p>The issue of unavailability of micro loans for student has troubled many students for a long time. Along with the slow and complex process of acquiring bigger student loans, students are often found wanting for a faster and better method of acquiring micros and macro loans.</p>
