@@ -78,6 +78,9 @@ https://sphlash.web.app/
 <p align="center"><img src="./Flowcharts/Admin-Flowchart.jpg" /></p>
 <p align="center"><img src="./Flowcharts/LaonType-ScoringMatrix.jpg" /></p>
 
+## Working
+<img src="./Sphlash.gif" />
+
 
 ## Team members
 
