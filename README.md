@@ -8,7 +8,7 @@
 
 <p align="center"><img src="./Design-Mockups/Admin-Dashboard/Admin-Dashboard.jpg" /></p>
 <p align="center"><img src="./Design-Mockups/Admin-Dashboard/Profile-Verification.jpg" /></p>
-<p align="center"><img src="./Design-Mockups/Admin-Dashboard/Transaction-History.jpg" /></p>
+<p align="center"><img src="./Design-Mockups/Admin-Dashboard/Transaction-History.jpg" height=400 width=800 /></p>
 <p align="center"><img src="./Design-Mockups/Admin-Dashboard/View-Loans.jpg" /></p>
 <p align="center"><img src="./Design-Mockups/Admin-Dashboard/View-Requests.jpg" /></p>
 
