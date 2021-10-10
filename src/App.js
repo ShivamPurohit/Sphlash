@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Router basename={'/'}>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <ToastContainer />
         <Switch>
           <Route exact path="/">
@@ -22,18 +22,22 @@ function App() {
           </Route>
 
           <Route exact path="/stuDashboard">
+            <Sidebar />
             <StudentDashboard />
           </Route>
 
           <Route exact path="/applyLoan">
+            <Sidebar />
             <ApplyLoan />
           </Route>
 
           <Route exact path="/uploadInfo">
+            <Sidebar />
             <UploadInfo />
           </Route>
 
           <Route exact path="/previousLoans">
+            <Sidebar />
             <PreviousLoans />
           </Route>
         </Switch>

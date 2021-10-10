@@ -104,7 +104,7 @@
 }
 
 .applyLoan__type1 {
-    width: 136px;
+    /* width: 136px;
     height: 46px;
     background: #43AFFF 0% 0% no-repeat padding-box;
     border: 1px solid #43AFFF;
@@ -113,7 +113,18 @@
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+    cursor: pointer; */
+
+    width: 136px;
+    height: 46px;
+    background: #E8E8E833 0% 0% no-repeat padding-box;
+    border: 1px solid #C6C6C6;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .applyLoan__type2 {

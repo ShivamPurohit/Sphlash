@@ -1,10 +1,19 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { auth } from '../../firebase'
 
 import "./Sidebar.css"
 
 function Sidebar() {
     const history = useHistory()
+
+    const logout = () => {
+        auth.signOut()
+            .then(() => {
+                history.push('/')
+            })
+            .catch((err) => alert(err.message))
+    }
 
     return (
         <div className="sidebar">
@@ -21,6 +30,8 @@ function Sidebar() {
             <img className="sidebar__image" src="https://cdn.pixabay.com/photo/2017/05/09/13/33/laptop-2298286_960_720.png" alt="" title="Know how it works" onClick={() => history.push("/")} />
 
             <img className="sidebar__image" src="https://cdn.pixabay.com/photo/2020/09/17/18/11/speed-5579992_960_720.png" alt="" title="Back to Dashboard" onClick={() => history.push("/stuDashboard")} />
+
+            <img className="sidebar__image" src="https://cdn.pixabay.com/photo/2014/12/21/23/38/sign-575715_960_720.png" alt="" title="Back to Dashboard" onClick={logout} />
         </div>
     )
 }

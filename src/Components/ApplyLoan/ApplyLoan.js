@@ -6,6 +6,8 @@ import GaugeChart from 'react-gauge-chart'
 import "./ApplyLoan.css"
 import { toast } from 'react-toastify'
 import Webcam from 'react-webcam'
+import { db } from "../../firebase"
+import firebase from "firebase"
 
 const videoConstraints = {
     width: 1280,
@@ -22,7 +24,7 @@ function ApplyLoan() {
     const [amount, setAmount] = useState("")
     const [reason, setReason] = useState("")
     const [duration, setDuration] = useState("")
-    const [repay, setrepay] = useState("")
+    const [repay, setRepay] = useState("")
     const [selfie, setSelfie] = useState("")
     const [doc, setDoc] = useState("")
 
@@ -32,6 +34,7 @@ function ApplyLoan() {
         () => {
             const imageSrc = webcamRef.current.getScreenshot();
             toast.success("Selfie Captured Successfully")
+            setSelfie(imageSrc);
         },
         [webcamRef]
     );
@@ -40,6 +43,7 @@ function ApplyLoan() {
         () => {
             const imageSrcDoc = webcamRef.current.getScreenshot();
             toast.success("Document Captured Successfully")
+            setDoc(imageSrcDoc)
         },
         [webcamRef]
     );
@@ -51,6 +55,19 @@ function ApplyLoan() {
             toast.error("Please fill all the required fields");
             return;
         }
+
+        db.collection("All_Loans").add({
+            Name: name,
+            Email: email,
+            Contact: contact,
+            Amount: amount,
+            Reason: reason,
+            Duration: duration,
+            Repayment: repay,
+            Selfie: selfie,
+            Doc: doc,
+            time: firebase.firestore.FieldValue.serverTimestamp(),
+        })
 
         toast.success("Yay !! You have Successfully applied for a loan. Some lender will get back to you soon !!")
         history.push("/stuDashboard")
@@ -74,38 +91,43 @@ function ApplyLoan() {
 
                     <div className="applyLoan__fullName">
                         <p>Full Name*</p>
-                        <input type="text" placeholder="Enter your full name" />
+                        <input type="text" placeholder="Enter your full name" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+
+                    <div className="applyLoan__fullName">
+                        <p>Contact*</p>
+                        <input type="text" placeholder="Enter your full name" value={contact} onChange={(e) => setContact(e.target.value)} />
                     </div>
 
                     <div className="applyLoan__emailAddress">
                         <p>Email Address*</p>
-                        <input type="email" placeholder="Enter your email" />
+                        <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
 
                     <div className="applyLoan__password">
                         <div className="applyLoan__createPass">
                             <p>Amount*</p>
-                            <input type="text" placeholder="Enter your Amount" />
+                            <input type="text" placeholder="Enter your Amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
                         </div>
                     </div>
 
                     <div className="applyLoan__skills">
                         <p>Reason*</p>
-                        <input type="text" placeholder="Enter your reason" />
+                        <input type="text" placeholder="Enter your reason" value={reason} onChange={(e) => setReason(e.target.value)} />
                     </div>
 
                     <div className="applyLoan__skills">
                         <p>Duration in which you will repay the loan*</p>
-                        <input type="text" placeholder="Enter your duration" />
+                        <input type="text" placeholder="Enter your duration" value={duration} onChange={(e) => setDuration(e.target.value)} />
                     </div>
 
                     <div className="applyLoan__types">
                         <p>Mode of Repayment*</p>
 
                         <div className="applyLoan__type">
-                            <p className="applyLoan__type1">EMI</p>
-                            <p className="applyLoan__type2">Cards</p>
-                            <p className="applyLoan__type3">NEFT/RTGS</p>
+                            <p className="applyLoan__type1" onClick={(e) => setRepay("EMI")}>EMI</p>
+                            <p className="applyLoan__type2" onClick={(e) => setRepay("Cards")}>Cards</p>
+                            <p className="applyLoan__type3" onClick={(e) => setRepay("NEFT")}>NEFT/RTGS</p>
                         </div>
                     </div>
 
